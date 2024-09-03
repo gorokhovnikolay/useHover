@@ -1,17 +1,10 @@
-import { useHover } from './hooks/useHover'
+import { useToggle } from './hooks/useToggle'
 import './App.css'
 
 function App() {
-    const { hovered, ref } = useHover()
-    return (
-        <div className='App'>
-            <header className='App-header'>
-                <div ref={ref}>
-                    {hovered ? 'На меня навели мышку' : 'Наведи мышкой на меня'}
-                </div>
-            </header>
-        </div>
-    )
+    const [value, toggle] = useToggle(['blue', 'orange', 'cyan', 'teal'])
+
+    return <button onClick={() => toggle()}>{value}</button>
 }
 
 export default App
